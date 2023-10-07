@@ -1,0 +1,17 @@
+server:
+  port: 8082
+dubbo:
+  application:
+    name: service-A
+    register-mode: instance
+    qos-port: 33334
+  registry:
+    address: multicast://224.5.6.7:1234?unicast=false
+  protocol:
+    name: tri
+    port: 38889
+  consumer:
+    check: false
+    cache: false
+    validation: true
+    timeout: 3000

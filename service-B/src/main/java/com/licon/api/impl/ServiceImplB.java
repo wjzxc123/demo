@@ -1,0 +1,27 @@
+package com.licon.api.impl;
+
+import com.licon.api.ServiceA;
+import com.licon.api.ServiceB;
+import org.apache.dubbo.config.annotation.DubboReference;
+import org.apache.dubbo.config.annotation.DubboService;
+
+/**
+ * @author Licon
+ * @description: TODO
+ * @date 2023/9/28 17:17
+ */
+@DubboService
+public class ServiceImplB implements ServiceB {
+
+    @DubboReference
+    private ServiceA serviceA;
+    @Override
+    public void testB() {
+
+        System.out.println("invoke begin");
+        serviceA.testA();
+        System.out.println("invoke end");
+
+        System.out.println("test B");
+    }
+}
