@@ -2,8 +2,12 @@ package com.licon.api.impl;
 
 import com.licon.api.ServiceA;
 import com.licon.api.ServiceB;
+import com.licon.api.User;
+import lombok.RequiredArgsConstructor;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.apache.dubbo.config.annotation.DubboService;
+
+import java.util.List;
 
 /**
  * @author Licon
@@ -13,15 +17,14 @@ import org.apache.dubbo.config.annotation.DubboService;
 @DubboService
 public class ServiceImplB implements ServiceB {
 
-    @DubboReference
-    private ServiceA serviceA;
     @Override
     public void testB() {
-
-        System.out.println("invoke begin");
-        serviceA.testA();
-        System.out.println("invoke end");
-
         System.out.println("test B");
+    }
+
+    @Override
+    public List<User> findUser(List<User> users) {
+        return users.stream()
+                .map(e->e.setName("Licon")).toList();
     }
 }

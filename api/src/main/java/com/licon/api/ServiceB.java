@@ -1,5 +1,7 @@
 package com.licon.api;
 
+import java.util.List;
+
 /**
  * @author Licon
  * @description: TODO
@@ -7,4 +9,6 @@ package com.licon.api;
  */
 public interface ServiceB {
     void testB();
+
+    List<User> findUser(List<User> users);
 }
